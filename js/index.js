@@ -10,6 +10,21 @@ const cont3 = document.querySelector(".contents3");
 const twoSlider = document.querySelector(".story-content");
 const twoSlider1 = document.querySelector(".story-content2");
 const twoSlider2 = document.querySelector(".story-content3");
+const img = document.querySelectorAll(".first");
+img.forEach((img, i) => {
+  const link = document.createElement("link");
+  link.rel = "preload";
+  link.as = "image";
+  link.href = img.src;
+  document.head.appendChild(link);
+});
+videos.forEach((video, i) => {
+  const link = document.createElement("link");
+  link.rel = "preload";
+  link.as = "video";
+  link.type = "video/mp4";
+  link.href = video.src;
+});
 
 let indexContainer = 0;
 let index_cont1 = 0;
