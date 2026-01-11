@@ -7,6 +7,7 @@ const link = document.querySelectorAll(".link-sub");
 const cont1 = document.querySelector(".contents1");
 const cont2 = document.querySelector(".contents2");
 const cont3 = document.querySelector(".contents3");
+const clickIcon = document.querySelectorAll(".icon-vol");
 const twoSlider = document.querySelector(".story-content");
 const twoSlider1 = document.querySelector(".story-content2");
 const twoSlider2 = document.querySelector(".story-content3");
@@ -51,6 +52,7 @@ function handleVideo(subIndex) {
     videos.forEach((v) => v.pause());
     currentVideoTab = null;
     currentTab = tabIndex;
+    changeVolume;
   }
 
   if (isVideoSubTab) {
@@ -61,6 +63,7 @@ function handleVideo(subIndex) {
     videos.forEach((v) => v.pause());
     videos[videoIndex].play();
     currentVideoTab = tabIndex;
+    videos[videoIndex].muted = true
   } else {
     if (currentVideoTab === tabIndex) {
       videos[tabIndex / 3].pause();
@@ -68,6 +71,15 @@ function handleVideo(subIndex) {
     }
   }
 }
+
+function ld() {
+  clickIcon.forEach((value, i) => {
+    value.addEventListener("click", () => {
+      changeVolume(i);
+    });
+  });
+}
+ld()
 function changeContainer() {
   insideContainer.style.transform = `translateY(${
     -indexContainer * swipeHeight
@@ -169,7 +181,6 @@ function createSlider(contents, i) {
   nextBtn.addEventListener("click", next);
   prevBtn.addEventListener("click", prev);
 
-  // swipe mobile
   let startX = 0;
 
   imageSlider.addEventListener("touchstart", (e) => {
@@ -247,6 +258,17 @@ function createTwoSlider(contents, i) {
     if (endX - startX > 50) prev();
   });
 }
+
+function changeVolume(activeIndex) {
+  videos.forEach((video, i) => {
+    if (i === activeIndex) {
+      video.muted = !video.muted;
+    } else {
+      video.muted = true;
+    }
+  });
+}
+
 createTwoSlider(twoSlider, index_twoSlider);
 createTwoSlider(twoSlider1, index_twoSlider2);
 createTwoSlider(twoSlider2, index_twoSlider3);
