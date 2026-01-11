@@ -1,0 +1,6 @@
+{
+    "editor.fontSize": 19,
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "monokai"
+}

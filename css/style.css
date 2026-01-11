@@ -62,8 +62,8 @@
   height: 11%;
 }
 .content-logo {
-  margin-bottom: 40px;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 40px;
 }
 .menu {
   width: 20%;
@@ -190,13 +190,15 @@
 }
 .text-swipe {
   width: 25%;
+
   height: 100%;
   transition: all 0.8s ease;
   display: flex;
-  font-size: 20px;
+  font-size: 22px;
   padding: 0 30px;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 10px;
+  text-align: center;
 }
 .dots {
   width: 30%;
@@ -321,6 +323,11 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+.d > p{
+ width: 80%;
+ font-size: 18px;
+ text-align: center;
 }
 .content-bottom > a {
   background: url("../assets/Shape\ 1\ copy.png") top/cover no-repeat;
