@@ -63,7 +63,7 @@ function handleVideo(subIndex) {
     videos.forEach((v) => v.pause());
     videos[videoIndex].play();
     currentVideoTab = tabIndex;
-    videos[videoIndex].muted = true
+    videos[videoIndex].muted = true;
   } else {
     if (currentVideoTab === tabIndex) {
       videos[tabIndex / 3].pause();
@@ -79,7 +79,7 @@ function ld() {
     });
   });
 }
-ld()
+ld();
 function changeContainer() {
   insideContainer.style.transform = `translateY(${
     -indexContainer * swipeHeight
@@ -263,8 +263,12 @@ function changeVolume(activeIndex) {
   videos.forEach((video, i) => {
     if (i === activeIndex) {
       video.muted = !video.muted;
+      !video.muted
+        ? (clickIcon[i].innerHTML = `<i class="bi bi-volume-up-fill"></i>`)
+        : (clickIcon[i].innerHTML = `<i class="bi bi-volume-mute-fill"></i>`);
     } else {
       video.muted = true;
+      clickIcon[i].innerHTML = `<i class="bi bi-volume-mute-fill"></i>`;
     }
   });
 }
